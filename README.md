@@ -1,4 +1,4 @@
-
+b
 ## Wallety
 `NODE VERSION 16.13.2`
 `React Router v6`
@@ -12,6 +12,8 @@
 - Initialized  with npx creact-react-app [projectname]
 - Using Normazile.css
 - React Router install => npm install react-router-dom@6
+- npm install react-icons --save
 
-[React Router](https://reactrouter.com/en/v6.3.0)
-[API-WALLETY](https://wallety-api.vercel.app)
+[React Router](https://reactrouter.com/en/v6.3.0) </br>
+[API-WALLETY](https://wallety-api.vercel.app)   </br>
+[react-icons](https://react-icons.github.io/react-icons/)

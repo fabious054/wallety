@@ -1,8 +1,19 @@
 :root{
+  /* background-colors: */
     --principal-color: #1E1E2F;
-    --second-color: #F0322D;
+    --second-color: #e14eca;
+    --white-bg: #FFF;
 
+    /* text-colors: */
     --text-color: #FFF;
+    --input--color: rgba(29,37,59,.2);
+
+    /* Borders: */
+    --border-radius: 0.5rem;
+    --border-color: rgba(29,37,59,.2);
+
+    /* padding: */
+    --default-padding: 1.5rem;
   }
 
   
