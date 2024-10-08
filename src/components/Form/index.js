@@ -2,7 +2,7 @@ import styles from "./Form.module.css";
 
 const Form = ({children,onSubmit}) => {
   return (
-    <form className={styles.form}>
+    <form onSubmit={onSubmit} className={styles.form}>
       {children}
     </form>
   );
