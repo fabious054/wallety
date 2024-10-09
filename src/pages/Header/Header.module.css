@@ -1,0 +1,48 @@
+.header{
+    width: 100%;
+    padding: 1rem 3rem 1rem 3rem;
+    box-shadow: 0px 2px 5px rgba(0,0,0,.2);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.breadcrumps{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+}
+.breadcrumpTitle{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+.breadcrumpIcon{
+    color: var(--second-color);
+    cursor: pointer;
+    transition: all .3s;
+}
+.breadcrumpIcon:hover{
+    transform: scale(1.1);
+}
+
+.user{
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s;
+    justify-content: center;
+}
+
+.userName{
+    font-size: 1.1rem;
+}
+
+.userIcon{
+    color: var(--second-color);
+    transition: all .3s;
+    cursor: pointer;
+}

@@ -13,6 +13,12 @@
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* Sections
    ========================================================================== */
 
@@ -39,7 +45,7 @@ main {
 
 h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: 0;
 }
 
 /* Grouping content

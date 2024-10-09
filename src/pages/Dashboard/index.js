@@ -9,9 +9,7 @@ const Dashboard = () => {
     
     
     return (
-        <div className={styles.login}>
-            <h1>Dashboard</h1>
-        </div>
+        <div></div>
     )
 }
 
