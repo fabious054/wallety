@@ -7,12 +7,14 @@ const [inputType, setInputType] = useState(type);
 const [eye, setEye] = useState(icon);
 
   const changeTypeFnc = () => {
-    if(inputType === 'password'){
-      setInputType('text');
-      setEye(<FaEye/>);
-    }else{
-      setInputType('password');
-      setEye(icon);
+    if(changeType){
+      if(inputType === 'password'){
+        setInputType('text');
+        setEye(<FaEye/>);
+      }else{
+        setInputType('password');
+        setEye(icon);
+      }
     }
   }
   const handleInputChange = (e) => {
