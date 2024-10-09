@@ -34,7 +34,18 @@
 }
 
 .input[type="date"]{
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--white-bg);
+    color: var(--principal-color);
     font-size: .85rem;
+    transition: all 0.3s;
+    border-top: 1px solid var(--border-color);
+    border-left: none;
+    border-right: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
 }
 
 .inputGroup{
