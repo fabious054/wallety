@@ -1,8 +1,8 @@
 
-function alert(){
+function alert(status, message){
     let div = document.createElement('div');
-        div.innerHTML = 'Usuário ou senha inválidos';
-        div.style.backgroundColor = '#e14eca';
+        div.innerHTML = message;
+        div.style.backgroundColor = status === 200 ? 'green' : 'red';
         div.style.color = 'white';
         div.style.position = 'fixed';
         div.style.top = '10px';

@@ -10,6 +10,7 @@ const AppRoutes = () =>{
 
     const ProtectedRoute = ({ element }) => {
         if (user === null) {
+            console.log('User is not logged in');
           return <Navigate to="/login" replace />;
         }
         return element;

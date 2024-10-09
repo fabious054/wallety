@@ -1,4 +1,4 @@
-import { useContext,useState } from 'react';
+import { useContext,useEffect,useState } from 'react';
 import styles from './Login.module.css';
 import { UserContext } from '../../contexts/usercontext';
 import { Link, Navigate } from 'react-router-dom';
@@ -22,11 +22,17 @@ const Login = () => {
 
     const  loginFnc = async (e) => {
         e.preventDefault();
-        console.log(username, password);
-        // alert();
+        
         const response = await login(username, password);
-        console.log(response);
-      
+        alert(response.status, response.message);
+        
+        if(response.status === 200){
+            setUser(response.data);
+        }
+    }
+
+    if (user) {
+        return <Navigate to="/" />;
     }
 
     return (
