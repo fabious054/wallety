@@ -10,8 +10,11 @@ import imgCloud from '../../imgs/cloudImg.png';
 import { FaUser } from "react-icons/fa";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { FaEyeLowVision } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import Select from '../../components/Select';
+import { createAccount } from '../../utils/Requests';
+import { alert } from '../../utils/Alert';
+import { setLocal } from '../../utils/LocalStorage';
 
 const Register = () => {
     const { user, setUser } = useContext(UserContext);
@@ -27,11 +30,28 @@ const Register = () => {
     const [state, setState] = useState(0);
     const [city, setCity] = useState(0);
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
-        console.log(name,lastName,username,email,born,password,confirmPassword,state,city);
+        if(password !== confirmPassword){
+            alert(400, 'As senhas não coincidem');
+            return;
+        }
+        if(password.length < 6){
+            alert(400, 'A senha deve ter no mínimo 6 caracteres');
+            return;
+        }
 
+        const response = await createAccount( name, lastName,username,email,born,8 ,state,city,password);
+        alert(response.status, response.message);      
+        
+        if(response.status === 200){
+            setUser(response.data);
+            setLocal('user', response.data);
+        }   
     };
+    if (user) {
+        return <Navigate to="/" />;
+    }
     
     
     return (

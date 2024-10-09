@@ -12,7 +12,7 @@ export const login = async (username, password) => {
 
     } catch (error) {
         console.error('Error during login:', error);
-        return null;
+        return error.response.data;
     }
 }
 
@@ -25,7 +25,7 @@ export const getStatesByCountry = async () => {
 
     } catch (error) {
         console.error('Error to get states:', error);
-        return null;
+        return error.response.data;
     }
 }
 export const getCitiesByState = async (id) => {
@@ -37,6 +37,29 @@ export const getCitiesByState = async (id) => {
 
     } catch (error) {
         console.error('Error to get states:', error);
-        return null;
+        return error.response.data;
+    }
+}
+
+export const createAccount = async (name, lastname,username,email,born,id_country = 8 ,id_state,id_city,password) => {
+    const API_URL = process.env.REACT_APP_API_URL;
+    try {
+        const response = await axios.post(`${API_URL}/user`, {
+            name: name,
+            lastname: lastname,
+            username: username,
+            email: email,
+            born: born,
+            id_country: id_country,
+            id_state: id_state,
+            id_city: id_city,
+            password: password
+        });
+
+        return response.data;
+
+    } catch (error) {
+        console.error('Error on insert :', error);
+        return error.response.data;
     }
 }
