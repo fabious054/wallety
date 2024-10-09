@@ -1,7 +1,7 @@
 import { useContext,useEffect,useState } from 'react';
 import styles from './Login.module.css';
 import { UserContext } from '../../contexts/usercontext';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { FaUser } from "react-icons/fa";
 import { FaEyeLowVision } from "react-icons/fa6";
 
@@ -42,9 +42,10 @@ const Login = () => {
                 <h1>Login</h1>
                 <Form onSubmit={loginFnc}>
                     <Input action={setUsername} text="Username" type="text" icon={<FaUser/>}/>
-                    <Input action={setPassword} text="Password" type="password" icon={<FaEyeLowVision/>} />
+                    <Input changeType={true} action={setPassword} text="Password" type="password" icon={<FaEyeLowVision/>} />
                     <Button>Login</Button>
                 </Form>
+                <Link className={styles.link} to="/register">Criar conta</Link>
             </div>
         </div>
     )

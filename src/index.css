@@ -6,7 +6,7 @@
 
     /* text-colors: */
     --text-color: #FFF;
-    --input--color: rgba(29,37,59,.2);
+    --input--color: rgba(29,37,59,1);
 
     /* Borders: */
     --border-radius: 0.5rem;
@@ -25,3 +25,20 @@
     {
       color: var(--text-color);
     }
+
+
+    .input-groups{
+      display: flex;
+      gap: .5rem;
+      width: 100%;
+
+      div{
+        flex: 1;
+      }
+  }
+
+  .select-groups{
+    display: flex;
+    gap: .5rem;
+    width: 100%;
+}

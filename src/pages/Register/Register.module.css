@@ -11,7 +11,7 @@
     padding: var(--default-padding);
 }
 
-.loginScreen{
+.registerScreen{
     display: flex;
     justify-content: center;
     align-items: center;

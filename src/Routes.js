@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import { UserContext } from './contexts/usercontext';
 import { getLocal } from './utils/LocalStorage';
+import Register from './pages/Register';
 
 
 const AppRoutes = () =>{
@@ -31,6 +32,7 @@ const AppRoutes = () =>{
         <BrowserRouter>
             <Routes>
                 <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register/>} />
                 <Route path="/" element={<ProtectedRoute element={<Dashboard />} />} />
             </Routes>
         </BrowserRouter>
