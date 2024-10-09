@@ -65,7 +65,7 @@ const Register = () => {
                     </div>
                     <div className='input-groups'>
                         <Input action={setUsername} text="Username" type="text" icon={<FaUser/>} />
-                        <Input action={setBorn} text="Nascimento" type="date" icon={<FaUser/>} />
+                        <Input action={setBorn} text="Nascimento" type="text" mask="date" icon={<FaUser/>} />
                     </div>
                         <Input action={setEmail} text="Email" type="email" icon={<MdOutlineAlternateEmail />} />
                     <div className='input-groups'>

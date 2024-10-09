@@ -43,6 +43,9 @@ export const getCitiesByState = async (id) => {
 
 export const createAccount = async (name, lastname,username,email,born,id_country = 8 ,id_state,id_city,password) => {
     const API_URL = process.env.REACT_APP_API_URL;
+    const [day, month, year] = born.split('/');
+    born = `${year}-${month}-${day}`;
+
     try {
         const response = await axios.post(`${API_URL}/user`, {
             name: name,
