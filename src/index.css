@@ -42,3 +42,13 @@
     gap: .5rem;
     width: 100%;
 }
+
+@media (max-width: 500px) {
+  .input-groups{
+    flex-direction: column;
+  }
+
+  .select-groups{
+    flex-direction: column;
+  }
+}

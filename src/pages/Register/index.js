@@ -25,13 +25,20 @@ const Register = () => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const [state, setState] = useState(0);
+    const [city, setCity] = useState(0);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        console.log(name,lastName,username,email,born,password,confirmPassword,state,city);
+
+    };
     
     
     return (
         <div className={styles.registerScreen}>
             <div style={{backgroundImage:`url(${imgCloud})`}} className={styles.login}>
                 <h1>Criar conta</h1>
-                <Form>
+                <Form onSubmit={submitHandler}>
                     <div className='input-groups'>
                         <Input action={setName} text="Nome" type="text" icon={<FaUser/>} />
                         <Input action={setLastname} text="Sobrenome" type="text" icon={<FaUser/>} />
@@ -47,7 +54,7 @@ const Register = () => {
                     </div>
                     <div className='select-groups'>
                         <Select action={setState} optionsType="states" />
-                        {state !== 0 && state !== "0"  ? <Select action={setState} optionsType="cities" stateId={state} /> : null}
+                        {state !== 0 && state !== "0"  ? <Select action={setCity} optionsType="cities" stateId={state} /> : null}
                     </div>
                     <Button>Criar</Button>
                 </Form>
