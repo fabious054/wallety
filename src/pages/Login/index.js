@@ -1,7 +1,7 @@
 import { useContext,useEffect,useState } from 'react';
 import styles from './Login.module.css';
 import { UserContext } from '../../contexts/usercontext';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { FaUser } from "react-icons/fa";
 import { FaEyeLowVision } from "react-icons/fa6";
 
@@ -9,10 +9,10 @@ import imgCloud from '../../imgs/cloudImg.png';
 import Form from '../../components/Form';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
-import { alert } from '../../utils/Alert';
 
-import axios from 'axios';
+import { alert } from '../../utils/Alert';
 import { login } from '../../utils/Requests';
+import { setLocal } from '../../utils/LocalStorage';
 
 const Login = () => {
     const { user, setUser } = useContext(UserContext);
@@ -28,6 +28,7 @@ const Login = () => {
         
         if(response.status === 200){
             setUser(response.data);
+            setLocal('user', response.data);
         }
     }
 
