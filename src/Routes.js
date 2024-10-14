@@ -1,8 +1,9 @@
 import { useContext } from 'react';
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes,useLocation } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import { UserContext } from './contexts/usercontext';
+import { PageContext } from './contexts/pageContext';
 import { getLocal } from './utils/LocalStorage';
 import Register from './pages/Register';
 import Default from './pages/Default';
@@ -10,7 +11,7 @@ import Default from './pages/Default';
 
 const AppRoutes = () =>{
     const { user, setUser } = useContext(UserContext);
-    
+
     const ProtectedRoute = ({ element }) => {
         if (user === null) {
             console.log('User is not logged in,redirecting to login page');

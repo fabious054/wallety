@@ -1,4 +1,15 @@
 .defaultPage{
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.defaultContent{
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+}
+.outlet{
+    flex-grow: 1; 
+    overflow-y: auto; 
 }
