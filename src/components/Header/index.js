@@ -6,11 +6,12 @@ import { UserContext } from '../../contexts/usercontext';
 import { IoIosArrowDropdown,IoIosArrowDropdownCircle  } from "react-icons/io";
 import { PageContext } from '../../contexts/pageContext';
 import { hundlerPathChanger } from '../../utils/PagePathChanger';
+import { AsideContext } from '../../contexts/asideContext';
 
 const Header = () => {
-    const [isOpen, setIsOpen] = useState(true);
     const { user, setUser } = useContext(UserContext);
     const { page, setPage } = useContext(PageContext);
+    const { menu, setMenu } = useContext(AsideContext);
     
     const location = useLocation();
     const path = location.pathname == '/' ? 'dashboard' : location.pathname.replace('/','');
@@ -21,13 +22,14 @@ const Header = () => {
     
 
     const iconChangeHandler = () => {
-        setIsOpen(!isOpen);
+        const changeTo = menu == 'opened' ? 'closed' : 'opened';
+        setMenu(changeTo);
     };
     return (
         <header className={styles.header}>
             <div className={styles.breadcrumps}>
                 <div className={styles.breadcrumpIcon} onClick={iconChangeHandler}>
-                    {isOpen ? <CiTextAlignCenter /> : <CiTextAlignLeft />}
+                    {menu == "opened" ? <CiTextAlignCenter /> : <CiTextAlignLeft />}
                 </div>
                 <h6 className={styles.breadcrumpTitle}>{path}</h6>
             </div>
