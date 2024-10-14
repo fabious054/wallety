@@ -9,7 +9,7 @@ const Dashboard = () => {
     
     
     return (
-        <div></div>
+        <div className={styles.dashboard}></div>
     )
 }
 

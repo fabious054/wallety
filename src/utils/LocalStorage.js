@@ -13,3 +13,13 @@ export function removeLocal(key) {
 export function clearLocal() {
     localStorage.clear();
 }
+
+export function findLocalAndApplyContext(key, setContext) {
+    const local = getLocal(key);
+    if(local){
+        setContext(local);
+        return true;
+    }else{
+        return false;
+    }
+}

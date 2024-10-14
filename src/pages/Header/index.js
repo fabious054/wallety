@@ -7,8 +7,8 @@ import { IoIosArrowDropdown,IoIosArrowDropdownCircle  } from "react-icons/io";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(true);
-    
     const { user, setUser } = useContext(UserContext);
+    console.log( "user", user);
     
     // pegar o path da url
     const location = useLocation();
