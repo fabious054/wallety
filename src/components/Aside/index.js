@@ -5,11 +5,9 @@ import { useContext } from "react";
 
 const Aside = () => {
     const { menu, setMenu } = useContext(AsideContext);
-
-    console.log(menu);
     
     return (
-        <aside className={styles.aside}>
+        <aside className={`${styles.aside} ${styles[menu]}`}>
             <div className={styles.triangle}></div>
             <div className={styles.box}>
                 <div className={styles.header}>
