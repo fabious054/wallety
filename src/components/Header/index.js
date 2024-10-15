@@ -1,24 +1,31 @@
 import { useContext, useEffect, useState } from 'react';
 import styles from './Header.module.css';
 import { CiTextAlignCenter,CiTextAlignLeft } from "react-icons/ci";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { UserContext } from '../../contexts/usercontext';
-import { IoIosArrowDropdown,IoIosArrowDropdownCircle  } from "react-icons/io";
 import { PageContext } from '../../contexts/pageContext';
 import { hundlerPathChanger } from '../../utils/PagePathChanger';
 import { AsideContext } from '../../contexts/asideContext';
+
+import { CiLogout } from "react-icons/ci";
+import { removeLocal } from '../../utils/LocalStorage';
 
 const Header = () => {
     const { user, setUser } = useContext(UserContext);
     const { page, setPage } = useContext(PageContext);
     const { menu, setMenu } = useContext(AsideContext);
-    
+    const navigate = useNavigate();
     const location = useLocation();
     const path = location.pathname == '/' ? 'dashboard' : location.pathname.replace('/','');
 
     useEffect(() => {
         hundlerPathChanger(path, setPage);
     }, [path]);
+
+    const logout = () => {
+        setUser(null);
+        removeLocal('user');
+    }
     
 
     const iconChangeHandler = () => {
@@ -35,7 +42,7 @@ const Header = () => {
             </div>
             <div className={styles.user}>
                 <h6 className={styles.userName}>{`Olá, ${user.username}`} </h6>
-                <IoIosArrowDropdownCircle  className={styles.userIcon}/>
+                <CiLogout onClick={logout} title='Logout' className={styles.userIcon}/>
             </div>
         </header>
     )

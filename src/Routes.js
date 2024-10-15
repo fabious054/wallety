@@ -3,8 +3,6 @@ import { BrowserRouter, Navigate, Route, Routes,useLocation } from "react-router
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import { UserContext } from './contexts/usercontext';
-import { PageContext } from './contexts/pageContext';
-import { getLocal } from './utils/LocalStorage';
 import Register from './pages/Register';
 import Default from './pages/Default';
 
@@ -28,6 +26,7 @@ const AppRoutes = () =>{
                 <Route path="/register" element={<Register/>} />
                 <Route path="/" element={<ProtectedRoute element={<Default />} />} >
                     <Route index path="/" element={<Dashboard />} />
+                    <Route index path="/profile" element={<h1>oi</h1>} />
                 </Route>
             </Routes>
         </BrowserRouter>
