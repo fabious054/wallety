@@ -6,6 +6,7 @@ import { UserContext } from './contexts/usercontext';
 import Register from './pages/Register';
 import Default from './pages/Default';
 import NotFound from './pages/NotFound';
+import Profile from './pages/Profile';
 
 
 const AppRoutes = () =>{
@@ -27,7 +28,7 @@ const AppRoutes = () =>{
                 <Route path="/register" element={<Register/>} />
                 <Route path="/" element={<ProtectedRoute element={<Default />} />} >
                     <Route index path="/" element={<Dashboard />} />
-                    <Route index path="/profile" element={<h1>oi</h1>} />
+                    <Route index path="/profile" element={<Profile/>} />
                 </Route>
                 <Route path="*" element={<NotFound/>} />
             </Routes>

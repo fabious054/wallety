@@ -1,11 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./Input.module.css";
 import { FaEye } from "react-icons/fa";
 
-const Input = ({ text, type, icon, action, changeType = false, mask = false }) => {
+const Input = ({ text, type, icon, action, changeType = false, mask = false,currentValue }) => {
   const [inputType, setInputType] = useState(type);
   const [eye, setEye] = useState(icon);
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(currentValue);
+
+  const formatDateFromDB = (dateString) => {
+    const date = new Date(dateString); // Converte a string ISO em um objeto Date
+    const formattedDate = date.toLocaleDateString('pt-BR', { 
+        year: 'numeric', 
+        month: '2-digit', 
+        day: '2-digit'
+    });
+    return formattedDate;
+}
+
+  useEffect(() => {
+    if(mask === 'date'){
+        setValue(formatDateFromDB(currentValue));
+    }
+  },[currentValue]);
+
 
   const changeTypeFnc = () => {
     if (changeType) {

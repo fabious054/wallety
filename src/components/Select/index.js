@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./Select.module.css";
 import { getStatesByCountry,getCitiesByState } from "../../utils/Requests";
 
-const Select = ({optionsType,action,stateId = false}) => {
+const Select = ({optionsType,action,stateId = false,selected}) => {
   const [options, setOptions] = useState([]);
 
   const handleInputChange = (e) => {
@@ -30,7 +30,7 @@ const Select = ({optionsType,action,stateId = false}) => {
         {optionsType === 'states' ? 'Selecione o estado' : 'Selecione a cidade'}
       </option>
       {options.map((option) => (
-        <option key={option.id} value={option.id}>
+        <option selected={selected !== 0 && selected == option.id && true} key={option.id} value={option.id}>
           {option.name}
         </option>
       ))}
