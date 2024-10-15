@@ -43,6 +43,18 @@
     width: 100%;
 }
 
+.small-swal-popup {
+  width: fit-content !important; 
+  padding-inline: 4rem !important;
+}
+.small-swal-icon {
+  font-size: .5rem !important; /* Reduz o tamanho do ícone */
+}
+
+.small-swal-title {
+  font-size: 1rem !important; /* Reduz o tamanho do texto */
+}
+
 @media (max-width: 500px) {
   .input-groups{
     flex-direction: column;

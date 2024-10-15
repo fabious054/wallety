@@ -8,11 +8,11 @@ import Input from '../../components/Input';
 import { MdOutlineAlternateEmail } from 'react-icons/md';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
+import { alert } from '../../utils/Alert';
 
 
 const Profile = () => {
     const { user, setUser } = useContext(UserContext);
-console.log(user);
 
     const [name, setName] = useState(user.name);
     const [lastName,setLastname] = useState(user.lastname);
@@ -26,6 +26,7 @@ console.log(user);
     const changePorfile = (e) => {
         e.preventDefault();
         console.log('Profile updated');
+        alert(200, 'As senhas não coincidem');
     };
     return (
         <div className={styles.container}>

@@ -13,7 +13,9 @@ b
 - Using Normazile.css
 - React Router install => npm install react-router-dom@6
 - npm install react-icons --save
+- npm install sweetalert2
 
 [React Router](https://reactrouter.com/en/v6.3.0) </br>
 [API-WALLETY](https://wallety-api.vercel.app)   </br>
 [react-icons](https://react-icons.github.io/react-icons/)
+[SweetAlert](https://sweetalert2.github.io/)
