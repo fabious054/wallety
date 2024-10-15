@@ -9,6 +9,8 @@ import { MdOutlineAlternateEmail } from 'react-icons/md';
 import Select from '../../components/Select';
 import Button from '../../components/Button';
 import { alert } from '../../utils/Alert';
+import { editUser } from '../../utils/Requests';
+import { setLocal } from '../../utils/LocalStorage';
 
 
 const Profile = () => {
@@ -23,10 +25,17 @@ const Profile = () => {
     const [city, setCity] = useState(user.id_city);
     
 
-    const changePorfile = (e) => {
+    const changePorfile = async (e) => {
         e.preventDefault();
         console.log('Profile updated');
-        alert(200, 'As senhas não coincidem');
+        const response = await editUser(user.id, name, lastName, username, email, born, 8, state, city);
+        alert(response.status, response.message);      
+        
+        if(response.status === 200){
+            setUser(response.data);
+            setLocal('user', response.data);
+        }   
+
     };
     return (
         <div className={styles.container}>
