@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import { UserContext } from './contexts/usercontext';
 import Register from './pages/Register';
 import Default from './pages/Default';
+import NotFound from './pages/NotFound';
 
 
 const AppRoutes = () =>{
@@ -28,6 +29,7 @@ const AppRoutes = () =>{
                     <Route index path="/" element={<Dashboard />} />
                     <Route index path="/profile" element={<h1>oi</h1>} />
                 </Route>
+                <Route path="*" element={<NotFound/>} />
             </Routes>
         </BrowserRouter>
     )
