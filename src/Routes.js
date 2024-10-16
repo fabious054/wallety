@@ -9,6 +9,8 @@ import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import { tokenValidation } from './utils/Requests';
 import { setLocal } from './utils/LocalStorage';
+import Money from './pages/Money';
+import Cards from './pages/Cards';
 
 const ProtectedRoute = ({ element }) => {
     const { user,setUser } = useContext(UserContext);
@@ -19,7 +21,6 @@ const ProtectedRoute = ({ element }) => {
         const validateToken = async () => {
             if (user) {
                 const response = await tokenValidation();
-                console.log(response);
                 if (response.status == 401) {
                     setUser(null);
                     setLocal('user', null);
@@ -50,6 +51,8 @@ const AppRoutes = () => {
                 <Route path="/" element={<ProtectedRoute element={<Default />} />}>
                     <Route index element={<Dashboard />} />
                     <Route path="profile" element={<Profile />} />
+                    <Route path="money" element={<Money />} />
+                    <Route path="cards" element={<Cards />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
             </Routes>
