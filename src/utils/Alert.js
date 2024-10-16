@@ -1,6 +1,9 @@
+import { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { UserContext } from '../contexts/usercontext';
 
 function alert(status, message){
+
     Swal.fire({
         position: "top-end",
         icon: status === 200 ? "success" : "error",
@@ -14,8 +17,6 @@ function alert(status, message){
           }
       });
       
-
-
 }
 
 export {alert};

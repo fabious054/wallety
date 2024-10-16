@@ -34,7 +34,12 @@ const Profile = () => {
         if(response.status === 200){
             setUser(response.data);
             setLocal('user', response.data);
-        }   
+        }  
+        
+        if(response.message === 'Expired token'){
+            setUser(null);
+            setLocal('user', null);
+        }
 
     };
     return (

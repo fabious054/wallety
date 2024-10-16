@@ -68,31 +68,47 @@ export const createAccount = async (name, lastname,username,email,born,id_countr
     }
 }
 
-    export const editUser = async (id, name, lastname,username,email,born,id_country = 8 ,id_state,id_city) => {
-        const API_URL = process.env.REACT_APP_API_URL;
-        const [day, month, year] = born.split('/');
-        born = `${year}-${month}-${day}`;
-    
-        try {
-            const response = await axios.put(`${API_URL}/user/${id}`, {
-                name: name,
-                lastname: lastname,
-                username: username,
-                email: email,
-                born: born,
-                id_country: id_country,
-                id_state: id_state,
-                id_city: id_city,
-            },{
-                headers: {
-                    Authorization: `Bearer ${ getToken()}`
-                }
-            });
-    
-            return response.data;
-    
-        } catch (error) {
-            console.error('Error on update :', error);
-            return error.response.data;
+export const editUser = async (id, name, lastname,username,email,born,id_country = 8 ,id_state,id_city) => {
+const API_URL = process.env.REACT_APP_API_URL;
+const [day, month, year] = born.split('/');
+born = `${year}-${month}-${day}`;
+
+try {
+    const response = await axios.put(`${API_URL}/user/${id}`, {
+        name: name,
+        lastname: lastname,
+        username: username,
+        email: email,
+        born: born,
+        id_country: id_country,
+        id_state: id_state,
+        id_city: id_city,
+    },{
+        headers: {
+            Authorization: `Bearer ${ getToken()}`
         }
+    });
+
+    return response.data;
+
+} catch (error) {
+    console.error('Error on update :', error);
+    return error.response.data;
+}
+}
+
+
+export const tokenValidation = async () => {
+    const API_URL = process.env.REACT_APP_API_URL;
+    try {
+        const response = await axios.post(`${API_URL}/token`, {
+            token: getToken()
+        });
+
+        return response.data;
+
+    } catch (error) {
+        console.error('Error during token validation:', error);
+        return error.response.data;
     }
+};

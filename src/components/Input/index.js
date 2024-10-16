@@ -7,23 +7,6 @@ const Input = ({ text, type, icon, action, changeType = false, mask = false,curr
   const [eye, setEye] = useState(icon);
   const [value, setValue] = useState(currentValue);
 
-  const formatDateFromDB = (dateString) => {
-    const date = new Date(dateString); // Converte a string ISO em um objeto Date
-    const formattedDate = date.toLocaleDateString('pt-BR', { 
-        year: 'numeric', 
-        month: '2-digit', 
-        day: '2-digit'
-    });
-    return formattedDate;
-}
-
-  useEffect(() => {
-    if(mask === 'date'){
-        setValue(formatDateFromDB(currentValue));
-    }
-  },[currentValue]);
-
-
   const changeTypeFnc = () => {
     if (changeType) {
       if (inputType === "password") {
